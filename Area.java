@@ -1,24 +1,25 @@
-class Area{
-    int side;
-    int length;
-    int area;
-    
-    void get ( int s , int l)
+class Area
+  {
+    static double area(double radius)
     {
-        side = s;
-        length = l;
+        double pi = 3.14;
+        return pi * radius * radius;
     }
-    
-    void calculateArea()
+
+    static int area(int side) 
     {
-    area = side * length;
-    System.out.println("Area : " + area);
+        return side * side;
     }
-    
-    public static void main ( String [] args)
+
+    static int area(int length, int width)
     {
-        Area a = new Area();
-        a.get(10,3);
-        a.calculateArea();
+        return length * width;
+    }
+
+    public static void main(String[] args) 
+    {
+        System.out.println("Area of Circle: " + area(4));
+        System.out.println("Area of Square: " + area(4));
+        System.out.println("Area of Rectangle: " + area(10, 3));
     }
 }
