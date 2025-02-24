@@ -1,25 +1,25 @@
-class Area
-  {
-    static double area(double radius)
+import java.util.Scanner;
+abstract class Circle
+{
+    protected double area;
+    abstract void calc_area();
+}
+class Area extends Circle
+{
+    private double r;
+    public Area()
     {
-        double pi = 3.14;
-        return pi * radius * radius;
+        Scanner in = new Scanner ( System.in );
+        r = in.nextDouble();
     }
-
-    static int area(int side) 
+    void calc_area()
     {
-        return side * side;
+        area = 3.14 * r * r;
+        System.out.println("Area = " + area);
     }
-
-    static int area(int length, int width)
+    public static void main ( String s[])
     {
-        return length * width;
-    }
-
-    public static void main(String[] args) 
-    {
-        System.out.println("Area of Circle: " + area(4));
-        System.out.println("Area of Square: " + area(4));
-        System.out.println("Area of Rectangle: " + area(10, 3));
+        Area obj = new Area();
+        obj.calc_area();
     }
 }

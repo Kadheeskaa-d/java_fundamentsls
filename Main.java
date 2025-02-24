@@ -1,55 +1,34 @@
 import java.util.Scanner;
+abstract class CircleOperations
+{
+    double radius;
 
-class LeftAngledTriangle {
-    int n;
-
-    LeftAngledTriangle() {
-        Scanner scn = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        n = scn.nextInt();
+    CircleOperations(double radius)
+    {
+        this.radius = radius;
     }
 
-    void display() {
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
-    }
-}
-
-class RightAngledTriangle {
-    int n;
-
-    RightAngledTriangle() {
-        Scanner scn = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        n = scn.nextInt();
+    double calculateArea()
+    {
+        return Math.PI * radius * radius;
     }
 
-    void display() {
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= n - i; j++) {
-                System.out.print("  ");
-            }
-            for (int k = 1; k <= i; k++) {
-                System.out.print("* ");
-            }
-            System.out.println();
-        }
+    double calculateCircumference()
+    {
+        return 2 * Math.PI * radius;
     }
 }
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter radius of the circle: ");
+        double radius = scanner.nextDouble();
 
-class Main {
-    public static void main(String[] args) {
-        LeftAngledTriangle left = new LeftAngledTriangle();
-        RightAngledTriangle right = new RightAngledTriangle();
+        CircleOperations circle = new CircleOperations(radius) { };
 
-        System.out.println("\nLeft Angled Triangle:");
-        left.display();
-
-        System.out.println("\nRight Angled Triangle:");
-        right.display();
+        System.out.println("Area of the circle: " + circle.calculateArea());
+        System.out.println("Circumference of the circle: " + circle.calculateCircumference());
     }
 }
